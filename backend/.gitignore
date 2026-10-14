@@ -1,0 +1,9 @@
+# Private settings
+.env
+!.env.example
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
