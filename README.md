@@ -2,7 +2,7 @@
 
 A web application where faculty members can post, view, update, close and delete research opportunities in one place, instead of sharing them through emails, WhatsApp groups and noticeboards.
 
-**GitHub Repository:** https://github.com/YOUR-USERNAME/YOUR-REPOSITORY-NAME  *(replace with your real link)*
+**GitHub Repository:** https://github.com/hamidkhanbuilds/research-opportunity-portal
 
 ## Features
 
