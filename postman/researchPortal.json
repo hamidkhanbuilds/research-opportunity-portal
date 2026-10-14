@@ -1,0 +1,402 @@
+{
+  "info": {
+    "name": "Research Opportunity Portal API",
+    "description": "Run the requests in order from 1 to 10. Requests 1 to 3 save the new IDs in collection variables. Start Flask first (http://localhost:5000).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Create opportunity 1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () { pm.response.to.have.status(201); });",
+              "pm.collectionVariables.set(\"id1\", pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"researchTitle\": \"Machine Learning for Crop Disease Detection\",\n  \"researchDescription\": \"Students will build image models to find crop diseases.\",\n  \"researchArea\": \"Machine Learning\",\n  \"facultyName\": \"Dr. Ayesha Khan\",\n  \"department\": \"Computer Science\",\n  \"requiredSkills\": \"Python, TensorFlow\",\n  \"availablePositions\": 2,\n  \"applicationDeadline\": \"2026-12-15\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "2. Create opportunity 2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () { pm.response.to.have.status(201); });",
+              "pm.collectionVariables.set(\"id2\", pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"researchTitle\": \"Secure Routing in Wireless Sensor Networks\",\n  \"researchDescription\": \"Students will test routing protocols against attacks.\",\n  \"researchArea\": \"Computer Networks\",\n  \"facultyName\": \"Dr. Ayesha Khan\",\n  \"department\": \"Computer Science\",\n  \"requiredSkills\": \"C++, Network Security\",\n  \"availablePositions\": 3,\n  \"applicationDeadline\": \"2026-12-20\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "3. Create opportunity 3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 201\", function () { pm.response.to.have.status(201); });",
+              "pm.collectionVariables.set(\"id3\", pm.response.json().id);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"researchTitle\": \"Sentiment Analysis of Urdu Text\",\n  \"researchDescription\": \"Students will collect and label Urdu text for sentiment models.\",\n  \"researchArea\": \"Natural Language Processing\",\n  \"facultyName\": \"Dr. Ayesha Khan\",\n  \"department\": \"Computer Science\",\n  \"requiredSkills\": \"Python, NLP\",\n  \"availablePositions\": 1,\n  \"applicationDeadline\": \"2026-11-30\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "4. Get all opportunities",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response is an array\", function () { pm.expect(pm.response.json()).to.be.an(\"array\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      }
+    },
+    {
+      "name": "5. Get one opportunity by ID",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id1}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id1}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "6. Update an opportunity",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Title was changed\", function () { pm.expect(pm.response.json().researchTitle).to.eql(\"Machine Learning for Plant Disease Detection\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id1}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id1}}"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"researchTitle\": \"Machine Learning for Plant Disease Detection\",\n  \"researchDescription\": \"Students will build image models to find crop diseases.\",\n  \"researchArea\": \"Machine Learning\",\n  \"facultyName\": \"Dr. Ayesha Khan\",\n  \"department\": \"Computer Science\",\n  \"requiredSkills\": \"Python, TensorFlow, OpenCV\",\n  \"availablePositions\": 4,\n  \"applicationDeadline\": \"2027-01-10\",\n  \"status\": \"Open\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "7. Change status Open to Closed",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Status is Closed\", function () { pm.expect(pm.response.json().status).to.eql(\"Closed\"); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id2}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id2}}"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"researchTitle\": \"Secure Routing in Wireless Sensor Networks\",\n  \"researchDescription\": \"Students will test routing protocols against attacks.\",\n  \"researchArea\": \"Computer Networks\",\n  \"facultyName\": \"Dr. Ayesha Khan\",\n  \"department\": \"Computer Science\",\n  \"requiredSkills\": \"C++, Network Security\",\n  \"availablePositions\": 3,\n  \"applicationDeadline\": \"2026-12-20\",\n  \"status\": \"Closed\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "8. Delete an opportunity",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id3}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id3}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "9. Get deleted opportunity (404)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 404\", function () { pm.response.to.have.status(404); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities/{{id3}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities",
+            "{{id3}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "10. Invalid data (400)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 400\", function () { pm.response.to.have.status(400); });"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/opportunities",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"researchTitle\": \"\",\n  \"researchArea\": \"AI\",\n  \"availablePositions\": 0,\n  \"applicationDeadline\": \"not a date\",\n  \"status\": \"Maybe\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    },
+    {
+      "key": "id1",
+      "value": ""
+    },
+    {
+      "key": "id2",
+      "value": ""
+    },
+    {
+      "key": "id3",
+      "value": ""
+    }
+  ]
+}
